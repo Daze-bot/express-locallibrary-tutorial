@@ -1,28 +1,12 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <div class="home">
-      <div class="sidebar">
-        <ul class="sidebar-nav">
-          <li><a href="/catalog">Home</a></li>
-          <li><a href="/catalog/books">All books</a></li>
-          <li><a href="/catalog/authors">All authors</a></li>
-          <li><a href="/catalog/genres">All genres</a></li>
-          <li><a href="/catalog/bookinstances">All book instances</a></li>
-          <hr>
-          <li><a href="/catalog/author/create">Create new author</a></li>
-          <li><a href="/catalog/genre/create">Create new genre</a></li>
-          <li><a href="/catalog/book/create">Create new book </a></li>
-          <li><a href="/catalog/bookinstance/create">Create new book instance (copy)</a></li>
-        </ul>
-      </div>
-      <div class="content">
-        Content Placeholder
-      </div>
-    </div>
-  </body>
-</html>
+<div class="index">
+  <h1><%= title %></h1>
+  <p>Welcome to Local Library, a very basic Express website developed as a tutorial example on the Mozilla Developer Network.</p>
+  <h3>The library has the following record counts:</h3>
+  <ul>
+    <li><b>Books:</b> <%= book_count %></li>
+    <li><b>Copies:</b> <%= book_instance_count %></li>
+    <li><b>Copies Avaialable:</b> <%= book_instance_available_count %></li>
+    <li><b>Authors:</b> <%= author_count %></li>
+    <li><b>Genres:</b> <%= genre_count %></li>
+  </ul>
+</div>

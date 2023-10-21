@@ -58,3 +58,38 @@ hr {
   flex-grow: 1;
   padding: 40px;
 }
+
+.content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.index h3 {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.index p {
+  margin-bottom: 60px;
+}
+
+.index ul {
+  padding-left: 30px;
+}
+
+.index li {
+  margin-bottom: 10px;
+}
+
+.text-success {
+  color: green;
+}
+
+.text-warning {
+  color: rgb(145, 145, 0);
+}
+
+.text-danger {
+  color: rgb(145, 0, 0);
+}
