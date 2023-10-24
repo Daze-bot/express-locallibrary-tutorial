@@ -18,7 +18,7 @@ main().catch(err => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
   console.log("Connected to mongoDB");
-}
+};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

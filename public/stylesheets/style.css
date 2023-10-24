@@ -24,6 +24,7 @@ a {
 .sidebar {
   background-color: rgb(231, 231, 221);
   box-shadow: 1px 0 8px rgba(0, 0, 0, 0.5);
+  min-width: 254px
 }
 
 .sidebar-nav {
@@ -64,6 +65,10 @@ hr {
   margin-bottom: 40px;
 }
 
+.content li {
+  margin-bottom: 10px;
+}
+
 .index h3 {
   font-size: 1.4rem;
   margin-bottom: 20px;
@@ -78,10 +83,6 @@ hr {
   padding-left: 30px;
 }
 
-.index li {
-  margin-bottom: 10px;
-}
-
 .text-success {
   color: green;
 }
@@ -92,4 +93,12 @@ hr {
 
 .text-danger {
   color: rgb(145, 0, 0);
+}
+
+.book-summary {
+  max-width: 1000px;
+}
+
+.genre-detail li {
+  margin-bottom: 20px;
 }
