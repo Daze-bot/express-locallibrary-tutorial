@@ -1,0 +1,40 @@
+<div class="book-detail">
+  <h1>Title: <%= book.title %></h1>
+
+  <p><b>Author: </b><a href=<%= book.author.url %>><%= book.author.name %></a></p>
+  <p><b>Summary: </b><%= book.summary %></p>
+  <p><b>ISBN: </b><%= book.isbn %></p>
+  <p><b>Genre: </b>
+    <% book.genre.forEach((genre, index) => { %>
+      <% if (index < book.genre.length - 1) { %>
+        <a href=<%= genre.url %>><%= genre.name %></a>,
+      <% } else { %>
+        <a href=<%= genre.url %>><%= genre.name %></a>
+      <% } %>
+    <% }) %>
+  </p>
+
+  <div class="detail-copy-info">
+    <h4>Copies</h4>
+
+    <% if (book_instances.length > 0) { %>
+      <% book_instances.forEach(instance => { %>
+        <hr>
+        <% if (instance.status === "Available") { %>
+          <p class="text-success"><%= instance.status %></p>
+        <% } else if (instance.status === "Maintenance") { %>
+          <p class="text-danger"><%= instance.status %></p>
+        <% } else { %>
+          <p class="text-warning"><%= instance.status %></p>
+        <% } %>
+        <p><b>Imprint: </b><%= instance.imprint %></p>
+        <% if (instance.status !== "Available") { %>
+          <p><b>Due Back: </b><%= instance.formattedDueDate %></p>
+        <% } %>
+        <p><b>Id: </b><a href=<%= instance.url %>><%= instance._id %></a></p>
+      <% }) %>
+    <% } else { %>
+      <p>There are no copies of this book in the library</p>
+    <% } %>
+  </div>  
+</div>

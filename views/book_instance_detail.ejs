@@ -1,0 +1,22 @@
+<div class="book-instance-detail">
+  <h1>ID: <%= book_instance.id %></h1>
+
+  <div class="instance-detail-info">
+    <p><b>Book: </b><a href=<%= book_instance.book.url %>><%= book_instance.book.title %></a></p>
+    <p><b>Author: </b><a href=<%= book_instance.book.author.url %>><%= book_instance.book.author.name %></a></p>
+    <p><b>Imprint: </b><%= book_instance.imprint %></p>
+    <div class="book-status">
+      <b>Status: </b>
+      <% if (book_instance.status === "Available") { %>
+        <p class="text-success"><%= book_instance.status %></p>
+      <% } else if (book_instance.status === "Maintenance") { %>
+        <p class="text-danger"><%= book_instance.status %></p>
+      <% } else { %>
+        <p class="text-warning"><%= book_instance.status %></p>
+      <% } %>
+      </div>
+    <% if (book_instance.status !== "Available") { %>
+      <p><b>Due Back: </b><%= book_instance.formattedDueDate %></p>
+    <% } %>
+  </div>
+</div>
