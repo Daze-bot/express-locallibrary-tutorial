@@ -1,0 +1,20 @@
+<div class="genre-form">
+  <h1><%= title %></h1>
+
+  <form method="POST" action="">
+    <div class="form-group">
+      <label for="name">Genre:</label>
+      <input autofocus id="name" name="name" type="text" placeholder="Fantasy, Poetry, etc." value='<%= genre.name %>' onfocus="this.select()">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <% if (errors) { %>
+    <ul class="form-errors">
+      <h4 class="text-danger">Errors:</h4>
+      <% errors.forEach(error => { %>
+        <li>- <%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

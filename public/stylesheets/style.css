@@ -111,7 +111,8 @@ a {
 }
 
 .book-detail h4,
-.author-detail h4 {
+.author-detail h4,
+.form-errors h4 {
   font-size: 1.4rem;
   font-weight: 400;
   margin-top: 40px;
@@ -140,4 +141,41 @@ a {
 .book-status {
   display: flex;
   gap: 6px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  margin-bottom: 20px;
+}
+
+.form-group button {
+  border: none;
+  background-color: #00B7FF;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.form-group button:hover {
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.form-group button:active {
+  box-shadow: none;
+  transform: translateY(1px);
 }
