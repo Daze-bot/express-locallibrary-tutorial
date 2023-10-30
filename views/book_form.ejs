@@ -1,0 +1,65 @@
+<div class="book-form">
+  <h1><%= title %></h1>
+
+  <form method="POST" action="">
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" name="title" type="text" value='<%= book.title %>' placeholder="Name of book">
+
+      <label for="author">Author:</label>
+      <select id="author" name="author">
+        <% authors.forEach(author => { %>
+          <% if (book !== "") { %>
+            <% if (book.author._id.toString() === author._id.toString()) { %>
+              <option value="<%= author._id %>" selected>
+                <%= author.name %>
+              </option>
+            <% } else { %>
+              <option value="<%= author._id %>">
+                <%= author.name %>
+              </option>
+            <% } %>
+          <% } else { %>
+            <option value="<%= author._id %>">
+              <%= author.name %>
+            </option>
+          <% } %>
+        <% }) %>
+      </select>
+
+      <label for="summary">Summary:</label>
+      <textarea id="summary" name="summary" placeholder="Summary" rows="5"><%=book.summary%></textarea>
+     
+      <label for="isbn">ISBN:</label>
+      <input id="isbn" name="isbn" type="text" value='<%= book.isbn %>' placeholder="ISBN13">
+
+      <label for="genre">Genre:</label>
+      <div class="allCheckboxes">
+        <% genres.forEach(genre => { %>
+          <% if (genre.checked === "true") { %>
+            <div class="checkbox">
+              <input type="checkbox" name="genre" id="<%= genre._id %>" value="<%= genre._id %>" checked>
+              <label for="<%= genre._id %>"><%= genre.name %></label>
+            </div>
+          <% } else { %>
+            <div class="checkbox">
+              <input type="checkbox" name="genre" id="<%= genre._id %>" value="<%= genre._id %>">
+              <label for="<%= genre._id %>"><%= genre.name %></label>
+            </div>
+          <% } %>
+        <% }) %>
+      </div>
+
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <% if (errors) { %>
+    <ul class="form-errors">
+      <h4 class="text-danger">Errors:</h4>
+      <% errors.forEach(error => { %>
+        <li>- <%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>

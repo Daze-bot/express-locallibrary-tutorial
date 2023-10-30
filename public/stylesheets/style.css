@@ -98,7 +98,8 @@ a {
 .book-summary,
 .book-detail,
 .author-detail,
-.book-instance-detail {
+.book-instance-detail,
+.book-form {
   max-width: 1000px;
 }
 
@@ -149,12 +150,15 @@ a {
   align-items: flex-start;
 }
 
-.form-group label {
+.form-group > label {
   font-weight: 700;
   margin-bottom: 5px;
 }
 
-.form-group input {
+.form-group > input,
+.form-group textarea,
+.form-group > div,
+.form-group select {
   padding: 10px;
   border-radius: 8px;
   border: 1px solid gray;
@@ -178,4 +182,10 @@ a {
 .form-group button:active {
   box-shadow: none;
   transform: translateY(1px);
+}
+
+.form-group textarea {
+  resize: none;
+  align-self: stretch;
+  white-space: normal;
 }
