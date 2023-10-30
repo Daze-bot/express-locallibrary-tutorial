@@ -24,10 +24,14 @@ AuthorSchema.virtual("url").get(function () {
 });
 
 AuthorSchema.virtual("lifespan").get(function () {
-  if (this.date_of_death) {
+  if (this.date_of_death && this.date_of_birth) {
     return moment(this.date_of_birth).format('YYYY') + " - " + moment(this.date_of_death).format('YYYY');
-  } else {
+  } else if (this.date_of_birth) {
     return moment(this.date_of_birth).format('YYYY') + " - ";
+  } else if (this.date_of_death) {
+    return " - " + moment(this.date_of_death).format('YYYY');
+  } else {
+    return " - ";
   }
 });
 

@@ -37,7 +37,7 @@ exports.genre_create_get = (req, res, next) => {
     blockContent: 'genre_form',
     title: "Create Genre",
     genre: "",
-    errors: undefined
+    errors: undefined,
   });
 };
 
