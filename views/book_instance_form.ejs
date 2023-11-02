@@ -1,0 +1,60 @@
+<div class="book-instance-form">
+  <h1><%= title %></h1>
+
+  <form method="POST" action="">
+    <div class="form-group">
+      <label for="book">Book:</label>
+      <select id="book" name="book">
+        <% book_list.forEach(book => { %>
+          <% if (book_instance !== "") { %>
+            <% if (selected_book === book._id.toString()) { %>
+              <option value="<%= book._id %>" selected>
+                <%= book.title %>
+              </option>
+            <% } else { %>
+              <option value="<%= book._id %>">
+                <%= book.title %>
+              </option>
+            <% } %>
+          <% } else { %>
+            <option value="<%= book._id %>">
+              <%= book.title %>
+            </option>
+          <% } %>
+        <% }) %>
+      </select>
+
+      <label for="imprint">Imprint:</label>
+      <input id="imprint" type="text" name="imprint" placeholder="Publisher and date information" value="<%= book_instance.imprint %>">
+
+      <label for="due_back">Date when book available:</label>
+      <input id="due_back" name="due_back" type="date" value='<%= book_instance.due_back %>' placeholder="mm/dd/yyyy">
+
+      <label for="status">Status:</label>
+      <select id="status" name="status">
+        <% statuses.forEach(status => { %>
+          <% if (status.selected === "true") { %>
+            <option selected>
+              <%= status.name %>
+            </option>
+          <% } else { %>
+            <option>
+              <%= status.name %>
+            </option>
+          <% } %>
+        <% }) %>
+      </select>
+
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <% if (errors) { %>
+    <ul class="form-errors">
+      <h4 class="text-danger">Errors:</h4>
+      <% errors.forEach(error => { %>
+        <li>- <%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+</div>
