@@ -35,4 +35,8 @@ AuthorSchema.virtual("lifespan").get(function () {
   }
 });
 
+AuthorSchema.virtual("deleteAuthor").get(function () {
+  return `/catalog/author/${this.id}/delete`;
+})
+
 module.exports = mongoose.model("Author", AuthorSchema);

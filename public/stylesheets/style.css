@@ -6,6 +6,7 @@
   margin: 0;
   font-size: 16px;
   list-style: none;
+  text-decoration: none;
 }
 
 body {
@@ -14,6 +15,10 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+a:hover {
+  color: #0095cf;
 }
 
 .home {
@@ -99,11 +104,13 @@ a {
 .book-detail,
 .author-detail,
 .book-instance-detail,
-.book-form {
+.book-form,
+.author-delete {
   max-width: 1000px;
 }
 
-.genre-detail li {
+.genre-detail li,
+.author-delete li {
   margin-bottom: 20px;
 }
 
@@ -113,20 +120,27 @@ a {
 
 .book-detail h4,
 .author-detail h4,
-.form-errors h4 {
+.form-errors h4,
+.author-delete h4 {
   font-size: 1.4rem;
   font-weight: 400;
   margin-top: 40px;
   margin-bottom: 20px;
 }
 
-.detail-copy-info {
+.detail-copy-info,
+.author-delete ul {
   padding-left: 40px;
 }
 
 .detail-copy-info hr {
   border-top: 1px solid rgba(128, 128, 128, 0.5);
   margin: 20px 0;
+}
+
+.author-detail hr {
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+  margin: 40px 0;
 }
 
 .detail-copy-info p {
