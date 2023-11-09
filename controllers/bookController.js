@@ -166,7 +166,34 @@ exports.book_delete_post = asyncHandler(async (req, res, next) => {
 });
 
 exports.book_update_get = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Book update GET");
+  const [book, allAuthors, allGenres] = await Promise.all([
+    Book.findById(req.params.id).populate("author").populate("genre").exec(),
+    Author.find().sort({ family_name: 1}).exec(),
+    Genre.find().exec(),
+  ]);
+
+  if (book === null) {
+    const err = new Error("Book not found");
+    err.status = 404;
+    return next(err);
+  }
+
+  for (const genre of allGenres) {
+    for (const book_g of book.genre) {
+      if (genre._id.toString() === book_g._id.toString()) {
+        genre.checked = "true";
+      }
+    }
+  }
+
+  res.render('base', {
+    blockContent: "book_form",
+    title: "Update Book",
+    authors: allAuthors,
+    genres: allGenres,
+    book: book,
+    errors: undefined,
+  });
 });
 
 exports.book_update_post = asyncHandler(async (req, res, next) => {
