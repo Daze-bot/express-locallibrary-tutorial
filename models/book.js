@@ -14,4 +14,12 @@ BookSchema.virtual("url").get(function () {
   return `/catalog/book/${this._id}`;
 });
 
+BookSchema.virtual("deleteBook").get(function () {
+  return `/catalog/book/${this.id}/delete`;
+});
+
+BookSchema.virtual("updateBook").get(function () {
+  return `/catalog/book/${this.id}/update`;
+});
+
 module.exports = mongoose.model("Book", BookSchema);

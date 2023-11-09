@@ -133,14 +133,15 @@ a:hover {
   padding-left: 40px;
 }
 
+.author-detail hr,
+.book-detail hr {
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+  margin: 40px 0;
+}
+
 .detail-copy-info hr {
   border-top: 1px solid rgba(128, 128, 128, 0.5);
   margin: 20px 0;
-}
-
-.author-detail hr {
-  border-top: 1px solid rgba(128, 128, 128, 0.5);
-  margin: 40px 0;
 }
 
 .detail-copy-info p {
@@ -207,4 +208,9 @@ a:hover {
 .book-instance-form #imprint,
 .book-instance-form #book {
   min-width: 500px;
+}
+
+.genre-detail li div {
+  margin-top: 5px;
+  padding-left: 20px;
 }
